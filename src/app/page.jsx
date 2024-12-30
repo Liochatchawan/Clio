@@ -11,7 +11,7 @@ export default function Home() {
       {/* Content */}
       <section className="h-full flex items-center justify-between text-white px-10 z-20 relative">
         {/* Photo */}
-        <div className="ml-60 flex items-center justify-start">
+        <div className="ml-60 mr-10 flex items-center justify-start">
           <img src="/Lio.jpg" alt="Lio Photo" className="h-96 rounded-xl object-contain" />
         </div>
 
@@ -46,9 +46,54 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <h1 className="text-center text-4xl font-bold bg-black" >
+        Music Video
+      </h1>
+      {/* my work 1*/}
+      <section className="h-96 bg-black flex justify-around items-center">
+        <div className="w-4/5 flex items-center space-x-8">
+          {/* รูปภาพ */}
+          <img src="/Mv1.jpg" alt="MV_1" className="mr-10 w-2/5 rounded-xl object-contain" />
 
-      {/* my work */}
-      <section></section>
+          {/* ข้อความ */}
+          <p className="text-white text-xl">
+            ผลงานการแสดง Music Video ที่มีชื่อว่า "ผิดที่ใจยังไม่ลืม" ตอนนี้มีรอดวิวอยู่ที่ 13 ล้านวิว
+          </p>
+        </div>
+      </section>
+      <h1 className="text-center text-4xl font-bold bg-black flex flex-col items-center py-6">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 48 48" /* ขยายขอบเขตของ SVG */
+          strokeWidth="3" /* ความหนาเส้น */
+          stroke="white"
+          className="w-8 h-8 mt-4" /* ปรับขนาด SVG */
+        >
+          {/* หางของลูกศร */}
+          <line x1="24" y1="4" x2="24" y2="32" stroke="white" strokeWidth="3" />
+          {/* หัวลูกศร */}
+          <path strokeLinecap="round" strokeLinejoin="round" d="M36 31L24 43L12 31" />
+        </svg>
+      </h1>
+
+
+
+      {/* my work 2*/}
+      <section className="h-screen bg-black flex justify-center items-center"
+        style={{
+          backgroundImage: "linear-gradient(to bottom, black, transparent 80%), url('/Mv2.jpg')",
+          backgroundSize: "cover", // ปรับขนาดรูปภาพให้พอดี container และรักษาสัดส่วน
+          backgroundPosition: "center", // จัดรูปภาพให้อยู่ตรงกลาง
+          backgroundRepeat: "no-repeat", // ปิดการทำซ้ำของรูปภาพ
+        }}
+      >
+        <div className="w-4/5">
+          <p className="text-white text-lg">Detail</p>
+        </div>
+      </section>
+
+
     </div>
   );
 }
