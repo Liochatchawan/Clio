@@ -2,14 +2,6 @@
 import Link from "next/link";
 import React, { useState } from "react";
 export default function Home() {
-  const [imageSrc, setImageSrc] = useState("/Lio.jpg"); // กำหนดรูปภาพเริ่มต้น
-
-  const toggleImage = () => {
-    setImageSrc((prev) =>
-      prev === "/Lio.jpg" ? "/test.jpg" : "/Lio.jpg" // เปลี่ยนรูปภาพ
-    );
-  };
-
   return (
     <div
       className="relative h-screen bg-cover bg-center"
@@ -39,7 +31,6 @@ export default function Home() {
             <Link
               href="#"
               className="btn-main mt-5 w-32 mx-auto md:mx-0"
-              onClick={toggleImage}
             >
               <span>ลองกดดูสิไอ้น้อง</span>
               <svg
