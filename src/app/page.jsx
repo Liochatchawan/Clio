@@ -1,4 +1,4 @@
-"use client"; 
+"use client";
 import Link from "next/link";
 import React, { useState } from "react";
 export default function Home() {
@@ -17,34 +17,30 @@ export default function Home() {
         backgroundImage: "linear-gradient(to top, black, transparent 80%), url('/image.jpg')",
       }}
     >
-      {/* Content */}
-      <section className="h-full flex items-center justify-between text-white px-10 z-20 relative">
-        {/* Photo */}
-        <div className="ml-60 mr-10 flex items-center justify-start">
-          <img src={imageSrc} alt="Lio Photo" className="h-96 rounded-xl object-contain" />
-          {/* <button
-            onClick={toggleImage}
-            className="ml-4 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
-          >
-            เปลี่ยนรูป
-          </button> */}
+      {/* แนะนำตัว */}
+      <section className="h-full flex md:flex-row items-center justify-between text-white px-10 z-20 relative">
+        {/* Photo Lio */}
+        <div className="flex justify-center md:ml-60 md:mr-10 w-full md:w-auto">
+          <img src={imageSrc} alt="Lio Photo" className="h-48 md:h-96 rounded-xl object-contain" />
         </div>
 
         {/* Detail */}
-        <div className="w-2/3 flex items-center">
-          <div>
-            <h2 className="text-4xl font-bold">Hi My Name Chatchawan Chanprom</h2>
-            <p className="mt-4 text-lg">
+        <div className="w-full md:w-2/3 flex items-center mt-4 md:mt-0">
+          <div className="text-center md:text-left">
+            <h2 className="text-2xl md:text-4xl font-bold">Hi My Name Chatchawan Chanprom</h2>
+            <p className="mt-4 text-sm md:text-lg">
               I'm the owner of this website. I created this website to store my work.
             </p>
-            <p className="mt-4 text-lg">
+            <p className="mt-4 text-sm md:text-lg">
               I'm a student at Mahasarakham University, Majoring in Computer Science and International Technology.
             </p>
 
             {/* Continue Button */}
-            <Link href="#" className="btn-main mt-5 w-32"
-            onClick={toggleImage}>
-              
+            <Link
+              href="#"
+              className="btn-main mt-5 w-32 mx-auto md:mx-0"
+              onClick={toggleImage}
+            >
               <span>ลองกดดูสิไอ้น้อง</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -64,15 +60,19 @@ export default function Home() {
         </div>
       </section>
 
-
       {/* my work 1*/}
-      <section className="h-96 bg-black flex justify-around items-center">
-        <div className="w-4/5 flex items-center justify-center space-x-8">
-          <img src="Myfan.jpg" alt="MyfanPoster" className="h-96 mr-10" />
-          {/* ข้อความ */}
-          <p className="text-white text-xl">
-            ผลงานการแสดง Music Video ที่มีชื่อว่า "Myแฟน" เป็นการทำ Music Video ในระหว่างที่เรียนอยู่ที่มหาลัยมหาสารคาม
-          </p>
+      <section className="h-96 bg-black flex justify-around items-center ml-1 px-10">
+        <div className="flex justify-center md:ml-60 md:mr-10 w-full md:w-auto">
+          <img src="Myfan.jpg" alt="MyfanPoster" className="h-48 md:h-96 rounded-xl object-contain" />
+        </div>
+        <div className="w-full md:w-2/3 flex items-center mt-4 md:mt-0">
+          <div className="text-center md:text-left">
+            {/* ข้อความ */}
+            <p className="text-white text-sm md:text-lg ml-2">
+              ผลงานการแสดง Music Video ที่มีชื่อว่า "Myแฟน" เป็นการทำ Music Video ในระหว่างที่เรียนอยู่ที่มหาลัยมหาสารคาม
+            </p>
+
+          </div>
         </div>
       </section>
       <h1 className="text-center text-4xl font-bold bg-black flex flex-col items-center py-6">
@@ -105,25 +105,32 @@ export default function Home() {
         }}
       >
         <div className="w-4/5 flex items-center justify-center space-x-8">
-          <iframe
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/VG6Zis-sU9U"
-            title="YouTube video player"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-            className="mr-10 w-2/5 rounded-xl"
-          />
+          <div className="w-full max-w-4xl mx-auto px-4">
+            <div className="relative pb-9/16 h-0">
+              <iframe
+                src="https://www.youtube.com/embed/VG6Zis-sU9U"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                className="absolute top-0 left-0 w-full h-full rounded-xl"
+              />
+            </div>
+          </div>
           {/* ข้อความ */}
-          <p className="text-white text-xl">
-            ผลงานการแสดง Music Video ที่มีชื่อว่า "ผิดที่ใจยังไม่ลืม" ตอนนี้มีรอดวิวอยู่ที่ 13 ล้านวิว
-          </p>
+          <div className="w-full md:w-2/3 flex items-center mt-4 md:mt-0">
+            <div className="text-center md:text-left">
+              <p className="text-white text-sm md:text-lg ml-2">
+                ผลงานการแสดง Music Video ที่มีชื่อว่า "ผิดที่ใจยังไม่ลืม" ตอนนี้มีรอดวิวอยู่ที่ 13 ล้านวิว
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
       <section className="h-96 bg-black flex justify-around items-center">
         <div className="w-4/5 flex items-center justify-center space-x-8">
-
+          <div className="block md:hidden">แสดงบนมือถือเท่านั้น</div>
+          <div className="hidden md:block">แสดงบนเดสก์ท็อปเท่านั้น</div>
         </div>
       </section>
 
