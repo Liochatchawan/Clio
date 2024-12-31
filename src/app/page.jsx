@@ -1,6 +1,15 @@
+"use client"; 
 import Link from "next/link";
-
+import React, { useState } from "react";
 export default function Home() {
+  const [imageSrc, setImageSrc] = useState("/Lio.jpg"); // กำหนดรูปภาพเริ่มต้น
+
+  const toggleImage = () => {
+    setImageSrc((prev) =>
+      prev === "/Lio.jpg" ? "/test.jpg" : "/Lio.jpg" // เปลี่ยนรูปภาพ
+    );
+  };
+
   return (
     <div
       className="relative h-screen bg-cover bg-center"
@@ -12,7 +21,13 @@ export default function Home() {
       <section className="h-full flex items-center justify-between text-white px-10 z-20 relative">
         {/* Photo */}
         <div className="ml-60 mr-10 flex items-center justify-start">
-          <img src="/Lio.jpg" alt="Lio Photo" className="h-96 rounded-xl object-contain" />
+          <img src={imageSrc} alt="Lio Photo" className="h-96 rounded-xl object-contain" />
+          {/* <button
+            onClick={toggleImage}
+            className="ml-4 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+          >
+            เปลี่ยนรูป
+          </button> */}
         </div>
 
         {/* Detail */}
@@ -27,8 +42,10 @@ export default function Home() {
             </p>
 
             {/* Continue Button */}
-            <Link href="/work" className="btn-main mt-5 w-32">
-              <span>Continue</span>
+            <Link href="#" className="btn-main mt-5 w-32"
+            onClick={toggleImage}>
+              
+              <span>ลองกดดูสิไอ้น้อง</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -46,18 +63,15 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <h1 className="text-center text-4xl font-bold bg-black" >
-        Music Video
-      </h1>
+
+
       {/* my work 1*/}
       <section className="h-96 bg-black flex justify-around items-center">
-        <div className="w-4/5 flex items-center space-x-8">
-          {/* รูปภาพ */}
-          <img src="/Mv1.jpg" alt="MV_1" className="mr-10 w-2/5 rounded-xl object-contain" />
-
+        <div className="w-4/5 flex items-center justify-center space-x-8">
+          <img src="Myfan.jpg" alt="MyfanPoster" className="h-96 mr-10" />
           {/* ข้อความ */}
           <p className="text-white text-xl">
-            ผลงานการแสดง Music Video ที่มีชื่อว่า "ผิดที่ใจยังไม่ลืม" ตอนนี้มีรอดวิวอยู่ที่ 13 ล้านวิว
+            ผลงานการแสดง Music Video ที่มีชื่อว่า "Myแฟน" เป็นการทำ Music Video ในระหว่างที่เรียนอยู่ที่มหาลัยมหาสารคาม
           </p>
         </div>
       </section>
@@ -77,22 +91,41 @@ export default function Home() {
         </svg>
       </h1>
 
-
+      <h1 className="text-center text-4xl font-bold bg-black" >
+        Music Video
+      </h1>
 
       {/* my work 2*/}
       <section className="h-screen bg-black flex justify-center items-center"
         style={{
-          backgroundImage: "linear-gradient(to bottom, black, transparent 80%), url('/Mv2.jpg')",
+          backgroundImage: "linear-gradient(to bottom, black, transparent 80%), linear-gradient(to top, black, transparent 80%),  url('/Mv1.jpg')",
           backgroundSize: "cover", // ปรับขนาดรูปภาพให้พอดี container และรักษาสัดส่วน
           backgroundPosition: "center", // จัดรูปภาพให้อยู่ตรงกลาง
           backgroundRepeat: "no-repeat", // ปิดการทำซ้ำของรูปภาพ
         }}
       >
-        <div className="w-4/5">
-          <p className="text-white text-lg">Detail</p>
+        <div className="w-4/5 flex items-center justify-center space-x-8">
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/VG6Zis-sU9U"
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+            className="mr-10 w-2/5 rounded-xl"
+          />
+          {/* ข้อความ */}
+          <p className="text-white text-xl">
+            ผลงานการแสดง Music Video ที่มีชื่อว่า "ผิดที่ใจยังไม่ลืม" ตอนนี้มีรอดวิวอยู่ที่ 13 ล้านวิว
+          </p>
         </div>
       </section>
 
+      <section className="h-96 bg-black flex justify-around items-center">
+        <div className="w-4/5 flex items-center justify-center space-x-8">
+
+        </div>
+      </section>
 
     </div>
   );
