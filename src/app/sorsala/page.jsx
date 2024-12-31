@@ -16,7 +16,7 @@ export default function MyWork() {
           className="w-60 h-60 object-contain z-10"
         />
         {/* ข้อความ */}
-        <h1 className="text-5xl font-bold text-center text-white z-10">
+        <h1 className="text-2xl md:text-5xl font-bold text-center text-white z-10">
           Welcome to S.Sorsala Studio
         </h1>
       </div>
