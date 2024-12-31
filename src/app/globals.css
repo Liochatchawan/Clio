@@ -23,7 +23,7 @@ body {
 .btn-main {
   color: black;
   cursor: pointer;
-  font-weight: 700;
+  font-weight: bold;
   transition: all 0.2s;
   padding: 5px 15px ;
   border-radius: 50px;

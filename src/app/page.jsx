@@ -59,10 +59,12 @@ export default function Home() {
           </div>
         </div>
       </section>
-
+      <h1 className="text-center text-4xl font-bold bg-black" >
+        S.Sorsala Studio
+      </h1>
       {/* my work 1*/}
       <section className="h-96 bg-black flex justify-around items-center ml-1 px-10">
-        <div className="flex justify-center md:ml-60 md:mr-10 w-full md:w-auto">
+        <div className="flex justify-center md:ml-60 md:mr-10 w-full md:w-auto mt-14">
           <img src="Myfan.jpg" alt="MyfanPoster" className="h-48 md:h-96 rounded-xl object-contain" />
         </div>
         <div className="w-full md:w-2/3 flex items-center mt-4 md:mt-0">
@@ -71,7 +73,10 @@ export default function Home() {
             <p className="text-white text-sm md:text-lg ml-2">
               ผลงานการแสดง Music Video ที่มีชื่อว่า "Myแฟน" เป็นการทำ Music Video ในระหว่างที่เรียนอยู่ที่มหาลัยมหาสารคาม
             </p>
-
+            {/* button sorsala studio */}
+            <Link href="/sorsala" className="btn-main mt-5 w-32 mx-auto md:mx-0 text-center">
+              <span>Sorsala Studio</span>
+            </Link>
           </div>
         </div>
       </section>
