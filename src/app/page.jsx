@@ -1,17 +1,14 @@
 "use client";
 import Link from "next/link";
 export default function Home() {
-<<<<<<< HEAD
   const [imageSrc, setImageSrc] = useState("/Lio.jpg"); // กำหนดรูปภาพเริ่มต้น
-
   const toggleImage = () => {
     setImageSrc((prev) =>
       prev === "/Lio.jpg" ? "/test3.jpg" : "/Lio.jpg" // เปลี่ยนรูปภาพ
     );
   };
 
-=======
->>>>>>> 7c33cfd1e833b5f351de97e9190e5042b1763e16
+c33cfd1e833b5f351de97e9190e5042b1763e16
   return (
     <div
       className="relative h-screen bg-cover bg-center"
