@@ -1,15 +1,16 @@
 "use client";
 import Link from "next/link";
 import { useState } from 'react';
+
 export default function Home() {
   const [imageSrc, setImageSrc] = useState("/Lio.jpg"); // กำหนดรูปภาพเริ่มต้น
+
   const toggleImage = () => {
     setImageSrc((prev) =>
-      prev === "/Lio.jpg" ? "/test3.jpg" : "/Lio.jpg" // เปลี่ยนรูปภาพ
+      prev === "/Lio.jpg" ? "/sorsala_bg.jpg" : "/Lio.jpg" // เปลี่ยนรูปภาพ
     );
   };
 
-c33cfd1e833b5f351de97e9190e5042b1763e16
   return (
     <div
       className="relative h-screen bg-cover bg-center"
@@ -21,7 +22,12 @@ c33cfd1e833b5f351de97e9190e5042b1763e16
       <section className="h-full flex md:flex-row items-center justify-between text-white px-10 z-20 relative">
         {/* Photo Lio */}
         <div className="flex justify-center md:ml-60 md:mr-10 w-full md:w-auto">
-          <img src={imageSrc} alt="Lio Photo" className="h-48 md:h-96 rounded-xl object-contain" />
+          <img
+            src={imageSrc}
+            alt="Lio Photo"
+            className="h-48 md:h-96 rounded-xl object-contain"
+            onClick={toggleImage} // เพิ่ม toggle เมื่อคลิกรูปภาพ
+          />
         </div>
 
         {/* Detail */}
@@ -58,54 +64,34 @@ c33cfd1e833b5f351de97e9190e5042b1763e16
           </div>
         </div>
       </section>
-      <h1 className="text-center text-4xl font-bold bg-black" >
-        S.Sorsala Studio
-      </h1>
-      {/* my work 1*/}
+
+      {/* Section 2 */}
+      <h1 className="text-center text-4xl font-bold bg-black">S.Sorsala Studio</h1>
       <section className="h-96 bg-black flex justify-around items-center ml-1 px-10">
         <div className="flex justify-center md:ml-60 md:mr-10 w-full md:w-auto mt-14">
           <img src="Myfan.jpg" alt="MyfanPoster" className="h-48 md:h-96 rounded-xl object-contain" />
         </div>
         <div className="w-full md:w-2/3 flex items-center mt-4 md:mt-0">
           <div className="text-center md:text-left">
-            {/* ข้อความ */}
             <p className="text-white text-sm md:text-lg ml-2">
               ผลงานการแสดง Music Video ที่มีชื่อว่า "Myแฟน" เป็นการทำ Music Video ในระหว่างที่เรียนอยู่ที่มหาลัยมหาสารคาม
             </p>
-            {/* button sorsala studio */}
             <Link href="/sorsala" className="btn-main mt-5 w-32 mx-auto md:mx-0 text-center">
               <span>Sorsala Studio</span>
             </Link>
           </div>
         </div>
       </section>
-      <h1 className="text-center text-4xl font-bold bg-black flex flex-col items-center py-6">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 48 48" /* ขยายขอบเขตของ SVG */
-          strokeWidth="3" /* ความหนาเส้น */
-          stroke="white"
-          className="w-8 h-8 mt-4" /* ปรับขนาด SVG */
-        >
-          {/* หางของลูกศร */}
-          <line x1="24" y1="4" x2="24" y2="32" stroke="white" strokeWidth="3" />
-          {/* หัวลูกศร */}
-          <path strokeLinecap="round" strokeLinejoin="round" d="M36 31L24 43L12 31" />
-        </svg>
-      </h1>
 
-      <h1 className="text-center text-4xl font-bold bg-black" >
-        Music Video
-      </h1>
-
-      {/* my work 2*/}
-      <section className="h-screen bg-black flex justify-center items-center"
+      {/* Section 3 */}
+      <h1 className="text-center text-4xl font-bold bg-black">Music Video</h1>
+      <section
+        className="h-screen bg-black flex justify-center items-center"
         style={{
-          backgroundImage: "linear-gradient(to bottom, black, transparent 80%), linear-gradient(to top, black, transparent 80%),  url('/Mv1.jpg')",
-          backgroundSize: "cover", // ปรับขนาดรูปภาพให้พอดี container และรักษาสัดส่วน
-          backgroundPosition: "center", // จัดรูปภาพให้อยู่ตรงกลาง
-          backgroundRepeat: "no-repeat", // ปิดการทำซ้ำของรูปภาพ
+          backgroundImage: "linear-gradient(to bottom, black, transparent 80%), url('/Mv1.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
         }}
       >
         <div className="w-4/5 flex items-center justify-center space-x-8">
@@ -120,7 +106,6 @@ c33cfd1e833b5f351de97e9190e5042b1763e16
               />
             </div>
           </div>
-          {/* ข้อความ */}
           <div className="w-full md:w-2/3 flex items-center mt-4 md:mt-0">
             <div className="text-center md:text-left">
               <p className="text-white text-sm md:text-lg ml-2">
@@ -137,7 +122,6 @@ c33cfd1e833b5f351de97e9190e5042b1763e16
           <div className="hidden md:block">แสดงบนเดสก์ท็อปเท่านั้น</div>
         </div>
       </section>
-
     </div>
   );
 }
