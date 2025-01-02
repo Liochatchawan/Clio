@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { useState } from 'react';
 export default function Home() {
   const [imageSrc, setImageSrc] = useState("/Lio.jpg"); // กำหนดรูปภาพเริ่มต้น
   const toggleImage = () => {
