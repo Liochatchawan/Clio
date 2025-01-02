@@ -6,7 +6,7 @@ export default function Home() {
 
   const toggleImage = () => {
     setImageSrc((prev) =>
-      prev === "/Lio.jpg" ? "/test.jpg" : "/Lio.jpg" // เปลี่ยนรูปภาพ
+      prev === "/Lio.jpg" ? "/test3.jpg" : "/Lio.jpg" // เปลี่ยนรูปภาพ
     );
   };
 
