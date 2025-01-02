@@ -3,6 +3,22 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { initializeApp } from "firebase/app";
+
+// Firebase configuration
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_AUTH_DOMAIN",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_STORAGE_BUCKET",
+  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+  appId: "YOUR_APP_ID",
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const storage = getStorage(app);
 
 export default function MyWork() {
   const [uploadedImages, setUploadedImages] = useState([]); // State to store uploaded images
@@ -21,8 +37,8 @@ export default function MyWork() {
   const handleNameChange = (e) => setName(e.target.value);
   const handlePositionChange = (e) => setPosition(e.target.value);
 
-  const handleUpload = () => {
-    if (password !== "sorsala") {
+  const handleUpload = async () => {
+    if (password !== "a") {
       alert("Invalid password! Please enter the correct password.");
       return;
     }
@@ -32,9 +48,11 @@ export default function MyWork() {
       return;
     }
 
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      const imageUrl = e.target.result;
+    try {
+      const storageRef = ref(storage, `images/${file.name}`);
+      await uploadBytes(storageRef, file);
+      const imageUrl = await getDownloadURL(storageRef);
+
       setUploadedImages((prev) => [...prev, { url: imageUrl, name, position }]);
       setFile(null);
       setPassword("");
@@ -42,12 +60,14 @@ export default function MyWork() {
       setPosition("");
       setShowUploadPopup(false);
       alert("Image uploaded successfully!");
-    };
-    reader.readAsDataURL(file);
+    } catch (error) {
+      console.error("Error uploading image:", error);
+      alert("Failed to upload image. Please try again.");
+    }
   };
 
   const handleDelete = () => {
-    if (password !== "sorsala") {
+    if (password !== "a") {
       alert("Invalid password! Please enter the correct password.");
       return;
     }
@@ -108,7 +128,7 @@ export default function MyWork() {
                           setCurrentDeleteIndex(index);
                           setShowDeletePopup(true);
                         }}
-                        className="absolute top-0 right-0 bg-red-500 text-black w-6 h-6 rounded-full flex items-center justify-center hover:bg-red-700 z-10"
+                        className="absolute top-0 right-0 bg-red-500 text-white w-6 h-6 rounded-full flex items-center justify-center hover:bg-red-700 z-10"
                       >
                         &times;
                       </button>
@@ -123,7 +143,7 @@ export default function MyWork() {
                       <p className="text-white text-xl font-semibold">
                         {uploadedImages[index].name}
                       </p>
-                      <p className="text-black-400">
+                      <p className="text-gray-400">
                         {uploadedImages[index].position}
                       </p>
                     </div>
@@ -146,7 +166,7 @@ export default function MyWork() {
       {showUploadPopup && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white p-6 rounded shadow-lg w-80">
-            <h2 className="text-lg font-bold mb-4 text-black">Upload Image</h2>
+            <h2 className="text-lg font-bold mb-4">Upload Image</h2>
             <input
               type="text"
               placeholder="Name"
@@ -176,13 +196,13 @@ export default function MyWork() {
             />
             <button
               onClick={handleUpload}
-              className="bg-blue-500 text-black px-4 py-2 rounded hover:bg-blue-700 w-full mb-2"
+              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 w-full mb-2"
             >
               Upload
             </button>
             <button
               onClick={() => setShowUploadPopup(false)}
-              className="bg-gray-500 text-black px-4 py-2 rounded hover:bg-gray-700 w-full"
+              className="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-700 w-full"
             >
               Cancel
             </button>
@@ -204,13 +224,13 @@ export default function MyWork() {
             />
             <button
               onClick={handleDelete}
-              className="bg-red-500 text-black px-4 py-2 rounded hover:bg-red-700 w-full mb-2"
+              className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700 w-full mb-2"
             >
               Delete
             </button>
             <button
               onClick={() => setShowDeletePopup(false)}
-              className="bg-gray-500 text-black px-4 py-2 rounded hover:bg-gray-700 w-full"
+              className="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-700 w-full"
             >
               Cancel
             </button>
