@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
-import React, { useState } from "react";
 export default function Home() {
+<<<<<<< HEAD
   const [imageSrc, setImageSrc] = useState("/Lio.jpg"); // กำหนดรูปภาพเริ่มต้น
 
   const toggleImage = () => {
@@ -10,6 +10,8 @@ export default function Home() {
     );
   };
 
+=======
+>>>>>>> 7c33cfd1e833b5f351de97e9190e5042b1763e16
   return (
     <div
       className="relative h-screen bg-cover bg-center"
@@ -39,7 +41,6 @@ export default function Home() {
             <Link
               href="#"
               className="btn-main mt-5 w-32 mx-auto md:mx-0"
-              onClick={toggleImage}
             >
               <span>ลองกดดูสิไอ้น้อง</span>
               <svg
