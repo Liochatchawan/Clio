@@ -31,7 +31,6 @@ body {
   border: 1px solid transparent;
   display: flex;
   align-items: center;
-  font-size: 15px;
 }
 
 .btn-main:hover {

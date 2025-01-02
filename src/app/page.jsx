@@ -44,7 +44,7 @@ export default function Home() {
             {/* Continue Button */}
             <Link
               href="#"
-              className="btn-main mt-5 w-32 mx-auto md:mx-0"
+              className="btn-main mt-5 w-32 justify-center text-center text-xs"
             >
               <span>ลองกดดูสิไอ้น้อง</span>
               <svg
@@ -68,15 +68,15 @@ export default function Home() {
       {/* Section 2 */}
       <h1 className="text-center text-4xl font-bold bg-black">S.Sorsala Studio</h1>
       <section className="h-96 bg-black flex justify-around items-center ml-1 px-10">
-        <div className="flex justify-center md:ml-60 md:mr-10 w-full md:w-auto mt-14">
+        <div className="flex justify-center md:ml-60 md:mr-10 w-full md:w-auto">
           <img src="Myfan.jpg" alt="MyfanPoster" className="h-48 md:h-96 rounded-xl object-contain" />
         </div>
         <div className="w-full md:w-2/3 flex items-center mt-4 md:mt-0">
-          <div className="text-center md:text-left">
+          <div className="text-center md:text-left ml-5">
             <p className="text-white text-sm md:text-lg ml-2">
               ผลงานการแสดง Music Video ที่มีชื่อว่า "Myแฟน" เป็นการทำ Music Video ในระหว่างที่เรียนอยู่ที่มหาลัยมหาสารคาม
             </p>
-            <Link href="/sorsala" className="btn-main mt-5 w-32 mx-auto md:mx-0 text-center">
+            <Link href="/sorsala" className="btn-main mt-5 w-32 justify-center text-center text-xs">
               <span>Sorsala Studio</span>
             </Link>
           </div>
@@ -88,7 +88,7 @@ export default function Home() {
       <section
         className="h-screen bg-black flex justify-center items-center"
         style={{
-          backgroundImage: "linear-gradient(to bottom, black, transparent 80%), url('/Mv1.jpg')",
+          backgroundImage: "linear-gradient(to bottom, black, transparent 80%),linear-gradient(to top, black, transparent 80%), url('/Mv1.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -116,12 +116,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="h-96 bg-black flex justify-around items-center">
-        <div className="w-4/5 flex items-center justify-center space-x-8">
-          <div className="block md:hidden">แสดงบนมือถือเท่านั้น</div>
-          <div className="hidden md:block">แสดงบนเดสก์ท็อปเท่านั้น</div>
-        </div>
-      </section>
     </div>
   );
 }
