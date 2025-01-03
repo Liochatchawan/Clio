@@ -44,7 +44,7 @@ export default function Home() {
             {/* Continue Button */}
             <Link
               href="#"
-              className="btn-main mt-5 w-32 justify-center text-center text-xs"
+              className="btn-main mt-5 w-32 justify-center text-center text-xs md:text-base"
             >
               <span>ลองกดดูสิไอ้น้อง</span>
               <svg
@@ -74,11 +74,15 @@ export default function Home() {
         <div className="w-full md:w-2/3 flex items-center mt-4 md:mt-0">
           <div className="text-center md:text-left ml-5">
             <p className="text-white text-sm md:text-lg ml-2">
-              ผลงานการแสดง Music Video ที่มีชื่อว่า "Myแฟน" เป็นการทำ Music Video ในระหว่างที่เรียนอยู่ที่มหาลัยมหาสารคาม
+              ผลงาน Music Video ที่มีชื่อว่า "Myแฟน" เป็นการทำ Music Video ในระหว่างที่เรียนอยู่ที่มหาลัยมหาสารคาม
             </p>
-            <Link href="/sorsala" className="btn-main mt-5 w-32 justify-center text-center text-xs">
-              <span>Sorsala Studio</span>
-            </Link>
+            <div className="w-full md:w-2/3 flex items-center mt-4 md:mt-0 z-20">
+              <div className="text-center md:text-left">
+                <Link href="/sorsala" className="btn-main mt-5 w-34 h-9 mx-auto md:mx-0 text-center text-xs md:text-lg ">
+                  <span>Sorsala Studio</span>
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
